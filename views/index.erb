@@ -2,3 +2,10 @@
 <div>
  <img style='border: 3px dashed red' src='http://bit.ly/1eze8aE'>
 </div>
+
+<% unless @name %>
+<form class="" action=/named-cat method="get">
+  <input type="text" name="name">
+  <input type="submit" value="Subit">
+</form>
+<% end %>
