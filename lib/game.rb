@@ -1,6 +1,13 @@
 class Game
-
   attr_reader :player1, :player2, :turn
+
+  def self.start(player1, player2)
+    @game_session = Game.new(player1, player2)
+  end
+
+  def self.show_game
+    @game_session
+  end
 
   def initialize(player1, player2)
     @player1 = player1

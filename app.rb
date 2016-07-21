@@ -12,29 +12,35 @@ class Battle < Sinatra::Base
 
   enable :sessions
 
+  before do
+    @game = Game.show_game
+  end
+
   get '/' do
     erb(:index)
   end
+
   post '/names' do
     player1 = Player.new(params[:Name1])
     player2 = Player.new(params[:Name2])
-    $game = Game.new(player1, player2)
+    Game.start(player1, player2)
+    # @game = Game.show_game
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
+    # @game = $game
     erb(:play)
   end
 
   get '/attack' do
-    @game = $game
+    # @game = $game
     @game.attack
     erb :attack
   end
 
   post '/switch_turn' do
-    @game = $game
+    # @game = $game
     @game.switch_turn
     redirect '/play'
   end
