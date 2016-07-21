@@ -1,5 +1,5 @@
 class Game
-  attr_reader :player1, :player2, :turn
+  attr_reader :player1, :player2
 
   def self.start(player1, player2)
     @game_session = Game.new(player1, player2)
@@ -20,8 +20,7 @@ class Game
   end
 
    def attack
-    victim = current_opponent
-    victim.take_damage
+    current_opponent.take_damage
   end
 
   def current_player
@@ -38,20 +37,20 @@ class Game
   end
 
   def switch_turn
-    if !gameover
-      if turn == player1
-        @turn = player2
-      else
-        @turn = player1
-      end
-   end
+    if turn == player1
+      @turn = player2
+    else
+      @turn = player1
+    end
   end
 
   def gameover
     !current_opponent.alive?
   end
+
   private
 
+  attr_reader :turn
 
 
 
