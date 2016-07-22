@@ -1,10 +1,10 @@
-<%= $game.player1.name %> Vs. <%= $game.player2.name %>
+<%= @game.player1.name %> Vs. <%= @game.player2.name %>
 <br>
-<%= $game.player2.name %>: <%= $game.player2.hp %> HP
+<%= @game.player2.name %>: <%= @game.player2.hp %> HP
 <br>
 <form action="/attack" method="get">
     <input type="submit" value="attack!">
   </label>
 </form>
 
-You hit <%= $game.player2.name.capitalize %>
+You hit <%= @game.player2.name.capitalize %>
